@@ -24,7 +24,7 @@ class Reservation {
 
 	public function __construct() {
 
-		// rejouter une a l'interieur de la class
+		// rejouter la function à l'interieur de la class
         // l'utilisateur complète les valeur 
 		$this->name = "Martial";
 		$this->place = "Akonolinga";
