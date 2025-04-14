@@ -24,14 +24,14 @@ class Reservation {
 
 	public function __construct() {
 
-		// utilisateur envoie ces valeurs
-		// temporairement "en dur"
+		// rejouter une a l'interieur de la class
+        // l'utilisateur complète les valeur 
 		$this->name = "Martial";
 		$this->place = "Akonolinga";
 		$this->startDate = new DateTime("25-04-15");
 		$this->endDate = new DateTime("25-05-17");
 		$this->cleaningOption = true;
-
+        
 		$this->nightPrice = 1000;
 
 		// valeurs calculées automatiquement
