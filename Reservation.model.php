@@ -40,7 +40,12 @@ class Reservation {
 		$this->bookedAt = new DateTime();
 		$this->status = "CART";
 	}
-
+    //function qui vient vérifier si le satus est en "CART" et le supprime si c'est le cas
+	public function cancel() {
+        if ($this->status === "CART") {
+            $this->status = "CANCELED";
+        }
+    }
 
 }
 
