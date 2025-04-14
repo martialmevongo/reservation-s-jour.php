@@ -37,7 +37,7 @@ $reservation->nightPrice = 1000;
 // valeurs calculées automatiquement
 $totalPrice = (($reservation->endDate->getTimestamp() - $reservation->startDate->getTimestamp()) / (3600 * 24) * $reservation->nightPrice) + 5000;
 
-$reservation->totalPrice = $totalPrice;
+$reservation->totalPrice = $totalPrice; 
 $reservation->bookedAt = new DateTime();
 $reservation->status = "CART";
 
