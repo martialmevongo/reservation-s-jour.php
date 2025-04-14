@@ -1,26 +1,25 @@
 <?php
 
-class reservation{
+class Reservation {
 
-public $name
+	public $name;
 
-public $place
+	public $place;
 
-public $startDate
+	public $startDate;
 
-public $endDate
+	public $endDate;
 
-public $totalPrice
+	public $totalPrice;
 
-public $nightPrice
+	public $nightPrice;
 
-public $$status;
+	public $status;
 
-public $bookedAt;
+	public $bookedAt;
 
-public $cleaningOption;
-};
-
+	public $cleaningOption;
+}
 
 $reservation = new Reservation();
 
@@ -37,10 +36,9 @@ $reservation->nightPrice = 1000;
 // valeurs calculées automatiquement
 $totalPrice = (($reservation->endDate->getTimestamp() - $reservation->startDate->getTimestamp()) / (3600 * 24) * $reservation->nightPrice) + 5000;
 
-$reservation->totalPrice = $totalPrice; 
+$reservation->totalPrice = $totalPrice;
 $reservation->bookedAt = new DateTime();
 $reservation->status = "CART";
 
 
 var_dump($reservation); 
-
