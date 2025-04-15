@@ -31,6 +31,10 @@ class Reservation {
 	// méthode appelée automatiquement lors de la création de l'instance de classe (new Reservation())
 	// les parametres du constructor sont à remplir aussi lors de l'instance de classe
 	public function __construct($name, $place, $startDate, $endDate, $cleaningOption) {
+		
+		if (strlen($name) < 2) {
+			throw new Exception('Le nom doit comporter plus de deux caractères');
+		}
 
 		// utilisateur envoie ces valeurs
 		// temporairement "en dur"
@@ -90,6 +94,8 @@ $cleaning = false;
 // l'objet reservation contient toutes les propriétés (name etc) définies dans la classe
 // et peut appeler toutes les fonctions définies dans la classe
 $reservation = new Reservation($name , $place, $start, $end, $cleaning);
+
+
 
 // j'appelle la méthode pay de l'objet reservation. L'objet reservation a récupéré la méthode pay de la classe Reservation
 $reservation->pay();

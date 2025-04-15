@@ -47,7 +47,13 @@
 
         </form>
 
-        <?php if (!is_null($reservation)) { ?>
+        
+	<?php if (!is_null($error)) { ?>
+		<p>La réservation n'a pas été effectuée : <?php echo $error; ?></p>
+	<?php } ?>
+
+    
+            <?php if (!is_null($reservation)) { ?>
             <div>
                 <p>Récap de la reservation</p>
                 <p>Nom : <?php echo $reservation->name; ?></p>
