@@ -40,13 +40,39 @@ class Reservation {
 		$this->bookedAt = new DateTime();
 		$this->status = "CART";
 	}
-    //function qui vient vérifier si le satus est en "CART" et le supprime si c'est le cas
+    // je créé une function cancel
 	public function cancel() {
+    // ma function vient vérifier si le satus est en "CART"
         if ($this->status === "CART") {
+    //et lui met le status annulé
             $this->status = "CANCELED";
         }
     }
+    //je créé une function cancel qui est en status CART
+    public function cancel()
+    {
+        if ($this->status === "CART") {
+            $this->status = "CANCELED";
+    //je viens ajouter la date actuelle au moment ou le status est canceled
+            $this->cancelDate = new DateTime(); 
+        }
+    }
+    //je créé une function paid qui est en status cart 
+    public function PAID(){
 
+        if ($this->status === "CART") {
+    //je change le statut cart et le met en paid et j'ajoute la date de ^paiement 
+            $this->status = "PAID";
+            $this->paidDate = new DateTime();
+        }
+    }
+    // je créé une function leaveComment qui est en status paid et j'ajoute la date de paiement
+    public function leaveComment() {
+        if ($this->status === "PAID") {
+            $this->status = "leaveComment";
+            $this->leaveCommentDate = new dateTime
+        }
+    }
 }
 
 
