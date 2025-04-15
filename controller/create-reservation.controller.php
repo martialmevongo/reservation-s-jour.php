@@ -3,6 +3,7 @@
 require_once('../config.php');
 require_once('../model/Reservation.model.php');
 
+
 // je créé un message vide
 $message = "";
 
@@ -27,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 	// je créé une réservation : une instance de classe, en lui envoyant les données attendues
 	$reservation = new Reservation($name, $place, $startDate, $endDate, $cleaningOption);
 
-	// je créé un message incluant le prix de la réservation (calculé automatiquement par ma classe Reservation)
+	// je créé un $message incluant le prix de la réservation (calculé automatiquement par ma classe Reservation)
 	$message = "Votre réservation est confirmée, au prix de " . $reservation->totalPrice;
 
 }
