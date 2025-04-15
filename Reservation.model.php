@@ -1,4 +1,3 @@
-
 <?php
 
 class Reservation {
@@ -21,6 +20,16 @@ class Reservation {
 
 	public $cleaningOption;
 
+	public $canceledAt;
+
+	public $paidAt;
+
+	public $comment;
+
+	public $commentedAt;
+
+	// méthode appelée automatiquement lors de la création de l'instance de classe (new Reservation())
+	// les parametres du constructor sont à remplir aussi lors de l'instance de classe
 	public function __construct($name, $place, $startDate, $endDate, $cleaningOption) {
 
 		// utilisateur envoie ces valeurs
@@ -40,39 +49,31 @@ class Reservation {
 		$this->bookedAt = new DateTime();
 		$this->status = "CART";
 	}
-    // je créé une function cancel
-	public function cancel() {
-    // ma function vient vérifier si le satus est en "CART"
-        if ($this->status === "CART") {
-    //et lui met le status annulé
-            $this->status = "CANCELED";
-        }
-    }
-    //je créé une function cancel qui est en status CART
-    public function cancel()
-    {
-        if ($this->status === "CART") {
-            $this->status = "CANCELED";
-    //je viens ajouter la date actuelle au moment ou le status est canceled
-            $this->cancelDate = new DateTime(); 
-        }
-    }
-    //je créé une function paid qui est en status cart 
-    public function PAID(){
 
-        if ($this->status === "CART") {
-    //je change le statut cart et le met en paid et j'ajoute la date de ^paiement 
-            $this->status = "PAID";
-            $this->paidDate = new DateTime();
-        }
-    }
-    // je créé une function leaveComment qui est en status paid et j'ajoute la date de paiement
-    public function leaveComment() {
-        if ($this->status === "PAID") {
-            $this->status = "leaveComment";
-            $this->leaveCommentDate = new dateTime
-        }
-    }
+
+	public function cancel() {
+		if ($this->status === "CART") {
+			$this->status = "CANCELED";
+			$this->canceledAt = new DateTime();
+		}
+	}
+
+	public function pay() {
+		if ($this->status === 'CART') {
+			// on devrait un véritable paiement
+			$this->status = "PAID";
+			$this->paidAt = new DateTime();
+		}
+	}
+
+	public function leaveComment($userComment) {
+		if ($this->status === "PAID") {
+			$this->comment = $userComment;
+			$this->commentedAt = new DateTime();
+		}
+	}
+
+
 }
 
 
@@ -85,10 +86,14 @@ $start = new DateTime('2025-04-04');
 $end = new DateTime('2025-04-05');
 $cleaning = false;
 
+// la variable reservation contient une instance de la classe Reservation / un objet issu de la classe Reservation
+// l'objet reservation contient toutes les propriétés (name etc) définies dans la classe
+// et peut appeler toutes les fonctions définies dans la classe
 $reservation = new Reservation($name , $place, $start, $end, $cleaning);
 
+// j'appelle la méthode pay de l'objet reservation. L'objet reservation a récupéré la méthode pay de la classe Reservation
+$reservation->pay();
 
-
-var_dump($reservation); 
+$reservation->leaveComment("Super séjour au château de Versailles. Petit bémol pour la hauteur sous plafond. Le wifi marche BOF.");
 
 
