@@ -1,70 +1,81 @@
+
+
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>reservation-séjour</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
+
+	<header>
+
+		<nav>
+			<ul>
+
+			</ul>
+		</nav>
+
+	</header>
 
 
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <h1>Créer une reservation</h1>
+<main>
+	
+	<h1>Créer une réservation</h1>
 
-        <form method="POST">
-            <label>Nom
-                <input type="text" name="name">
-            </label>
+	<form method="POST">
 
-            <label>Lieu
-                <select name="place" >
-                    <option value="chateau-versailles">chateau de versailles</option>
-                    <option value="zad-limoges">ZAD de limoges</option>
-                    <option value="renault-clio">Renault clio</option>
-                    <option value="maison-campagne">maison de campagne</option>
-                </select>
-            </label>
+		<label>Nom
+			<input type="text" name="name">
+		</label>
 
-            <label>Date de debut
-                <input type="date" name="start-date">
-            </label>
+		<label>Lieu
+			<select name="place">
+				<option value="chateau-versailles">Château de Versailles</option>
+				<option value="zad-limoges">ZAD de limoges</option>
+				<option value="renault-clio">Renault Clio</option>
+				<option value="maison-campagne">Maison de campagne</option>
+			</select>
+		</label>
 
-            <label>Date de fin 
-                <input type="date" name="end-date">
-            </label>
+		<label>Date de début
+			<input type="date" name="start-date">
+		</label>
 
-            <label>Option ménage ?
-                <input type="checkbox" name="cleaning-option">
-            </label>
+		<label>Date de fin
+			<input type="date" name="end-date">
+		</label>
 
-            <button type="submit">Créer la reservation</button>
+		<label>Option de ménage ?
+			<input type="checkbox" name="cleaning-option">
+		</label>
 
-        </form>
+		<button type="submit">Créer la réservation</button>
 
-        
+	</form>
+
 	<?php if (!is_null($error)) { ?>
 		<p>La réservation n'a pas été effectuée : <?php echo $error; ?></p>
 	<?php } ?>
 
-    
-            <?php if (!is_null($reservation)) { ?>
-            <div>
-                <p>Récap de la reservation</p>
-                <p>Nom : <?php echo $reservation->name; ?></p>
-                <p>Lieu : <?php echo $reservation->place; ?></p>
-                <p>Dates : <?php echo $reservation->startDate->format('d-m-y'); ?> / <?php echo $reservation->endDate->format('d-m-y'); ?></p>
-                <p>Prix total : <?php echo $reservation->totalPrice; ?></p>
-                <p>Option de ménage : <?php echo $reservation->$cleaningOption; ?></p>
-            </div>
-       <?php } ?>
 
-    </main>
-    
+	<?php if (!is_null($reservation)) { ?>
+
+		<div>
+			<p>Récap de la réservation :</p>
+			<p>Nom : <?php echo $reservation->name; ?></p>
+			<p>Lieu : <?php echo $reservation->place; ?></p>
+			<p>Dates : <?php echo $reservation->startDate->format('d-m-y'); ?> / <?php echo $reservation->endDate->format('d-m-y'); ?></p>
+			<p>Prix total : <?php echo $reservation->totalPrice; ?></p>
+			<p>Option de ménage ? : <?php echo $reservation->cleaningOption ? "oui" : "non"; ?></p>
+		</div>
+
+	<?php } ?>
+
+
+
+</main>
+
 </body>
 </html>

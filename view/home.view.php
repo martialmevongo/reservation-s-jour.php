@@ -1,22 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>reservation-séjour</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
+
+	<header>
+
+		<nav>
+			<ul>
+
+			</ul>
+		</nav>
+
+	</header>
 
 
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <h1>Bienvenue sur le système de reservation</h1>
-    </main>
-    
+<main>
+	
+	<h1>Bienvenue sur le système de réservation</h1>
+
+</main>
+
 </body>
 </html>
