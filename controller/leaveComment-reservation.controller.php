@@ -8,14 +8,18 @@ $reservationForUser = findReservationForUser();
 $message = "";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-
-    $comment = $_POST["comment"] ?? ""; 
-
-    $reservationForUser->leaveComment($comment); 
+   
+    $comment = $_POST["comment"] ?? "";      
     
-    persistReservation($reservationForUser);  
-    
-    $message = "Commentaire envoyé"; 
+    if (empty($comment)) {
+        $message = "Le commentaire ne peut pas être vide.";
+    } else {
+        
+        $reservationForUser->leaveComment($comment);  
+        persistReservation($reservationForUser);  
+        
+        $message = "Commentaire envoyé avec succès!";
+    }
 }
 
 require_once('../view/leaveComment-reservation.view.php');
