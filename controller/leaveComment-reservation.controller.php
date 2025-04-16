@@ -1,19 +1,17 @@
-<?
+<?php
 require_once('../config.php');
 require_once('../model/Reservation.model.php');
 require_once('../model/Reservation.repository.php');
 
-
 $reservationForUser = findReservationForUser();
-
-$message = "";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
-	$reservationForUser->pay();
+	$reservationForUser->leaveComment();
 	persistReservation($reservationForUser);
-	$message = "Réservation payée";
+	$message = "commentaire envoyé";
 
 }
 
-require_once('../view/pay-reservation.view.php');
+
+require_once('../view/leaveComment-reservation.view.php');
