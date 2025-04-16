@@ -19,6 +19,7 @@
             <input type="text" name="commentaire" placeholder="Votre commentaire...">
             <button type="submit">Envoyez votre commentaire</button>
         </form>
+        <p><?php echo $message; ?></p>
     </main>
 </body>
 </html>
