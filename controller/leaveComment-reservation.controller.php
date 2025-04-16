@@ -9,7 +9,7 @@ $message = "";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
    
-    $comment = $_POST["comment"] ?? "";      
+    $comment = $_POST["commentaire"] ?? "";      
     
     if (empty($comment)) {
         $message = "Le commentaire ne peut pas être vide.";

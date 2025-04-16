@@ -10,6 +10,7 @@ $error = null;
 // je vérifie si le form a été envoyé
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
+
 	// je récupère les données du formulaire envoyées par l'utilisateur
 	$name = $_POST['name'];
 	$place = $_POST['place'];
@@ -19,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 	// je regarde si cleaning option a été sélectionné et je transforme la valeur
 	// de l'input en true ou false
-	if ($_POST['cleaning-option'] === "on") {
+	if (isset($_POST['cleaning-option']) && $_POST['cleaning-option'] === "on") {
 		$cleaningOption = true;
 	} else {
 		$cleaningOption = false;
