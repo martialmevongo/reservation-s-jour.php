@@ -8,9 +8,14 @@ $reservationForUser = findReservationForUser();
 $message = "";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $reservationForUser->leaveComment();      
+
+    $comment = $_POST["comment"] ?? ""; 
+
+    $reservationForUser->leaveComment($comment); 
+    
     persistReservation($reservationForUser);  
-    $message = "commentaire envoyé";          
+    
+    $message = "Commentaire envoyé"; 
 }
 
 require_once('../view/leaveComment-reservation.view.php');
