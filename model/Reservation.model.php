@@ -79,6 +79,8 @@ class Reservation {
 	}
 
 
+
+
 	// dans la classe, je peux modifier les valeurs des propriétés si elles sont en public ou en privé
 }
 

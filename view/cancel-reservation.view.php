@@ -19,27 +19,18 @@
 
 
 <main>
-	
-	<h1>Annuler une réservation</h1>
 
-	<?php if (!is_null($reservationForUser)) { ?>
-
-	<div>
-		<p>Récap de la réservation :</p>
-		<p>Nom : <?php echo $reservationForUser->name; ?></p>
-		<p>Lieu : <?php echo $reservationForUser->place; ?></p>
-		<p>Dates : <?php echo $reservationForUser->startDate->format('d-m-y'); ?> / <?php echo $reservationForUser->endDate->format('d-m-y'); ?></p>
-		<p>Prix total : <?php echo $reservationForUser->totalPrice; ?></p>
-		<p>Option de ménage ? : <?php echo $reservationForUser->cleaningOption ? "oui" : "non"; ?></p>
-	</div>
-
-	<?php } ?>
-
-	<form method="POST">
-
-		<button type="submit">Annuler la réservation</button>
-
-	</form>
+  <?php
+  // Vérifier si la réservation à annuler existe
+  if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["Reservation"]) && $_POST["Reservation"] === "summit") {
+      // Appeler la fonction qui la réservation
+      $Reservation = cancelReservation();
+  }
+  ?>
+  
+  <form method="POST">
+      <button type="submit">Annuler la réservation</button>
+  </form>
 
 </main>
 
