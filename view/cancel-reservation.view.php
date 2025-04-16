@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Reservation-séjour</title>
+	<title>reservation-séjour</title>
 </head>
 <body>
 
@@ -19,18 +19,19 @@
 
 
 <main>
+	
+	<h1>Annuler une réservation</h1>
 
-  <?php
-  // Vérifier si la réservation à annuler existe
-  if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["Reservation"]) && $_POST["Reservation"] === "summit") {
-      // Appeler la fonction qui la réservation
-      $Reservation = cancelReservation();
-  }
-  ?>
-  
-  <form method="POST">
-      <button type="submit">Annuler la réservation</button>
-  </form>
+	<?php require_once('../view/partials/_resume-reservation.view.php'); ?>
+
+	<form method="POST">
+
+		<button type="submit">Annuler la réservation</button>
+
+	</form>
+
+	<p><?php echo $message; ?></p>
+
 
 </main>
 
